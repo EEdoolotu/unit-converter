@@ -1,3 +1,5 @@
+import conversions
+
 length_units = ["meters", "kilometers", "miles", "feet"]
 weight_units = ["grams", "kilograms", "pounds"]
 temperature_units = ["celsius", "fahrenheit", "kelvin"]
@@ -41,6 +43,15 @@ def main():
 
 
     value = float(input("Enter the value you want to convert "))
+
+    if category == "length":
+        result = conversions.convert_length(value, unit_from, unit_to)
+    elif category == "weight":
+        result = conversions.convert_weight(value, unit_from, unit_to)
+    elif category == "temperature":
+        result = conversions.convert_temperature(value, unit_from, unit_to)
+
+    print(f'{value} {unit_from} has been converted to {result} {unit_to}')
 
 if __name__ == "__main__":
     main()
